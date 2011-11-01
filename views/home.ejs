@@ -4,6 +4,10 @@
     They're sent to your confirmation e-mail.
 </p>
 
+<% if (typeof(error) !== "undefined") { %>
+	<p class="message error"><%- error %></p>
+<% } %>
+
 <form action="/enter" method="post">
     <p>
         <label for="email">Your e-mail address</label>

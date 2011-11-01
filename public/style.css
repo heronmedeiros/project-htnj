@@ -1,0 +1,24 @@
+body {
+  color: #202020;
+  font-family: "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+.message {
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
+.error {
+  background: red;
+  color: yellow;
+  font-weight: bold;
+}
+
+label,
+small {
+  display: block;
+}
+
+small {
+  font-size: 11px;
+}

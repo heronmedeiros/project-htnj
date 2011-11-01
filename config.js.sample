@@ -1,0 +1,9 @@
+module.exports = {
+    development: {
+      mongodb: "mongodb://localhost/howto_development"
+    }
+
+  , production: {
+    mongodb: "mongodb://localhost/howto_production"
+  }
+}

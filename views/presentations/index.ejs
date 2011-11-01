@@ -1,0 +1,15 @@
+<h1>All presentations</h1>
+
+<p>
+	<a href="/presentations/new">Add presentation</a>
+</p>
+
+<ul>
+	<% docs.forEach(function(doc){ %>
+		<li>
+			<a href="/presentations/<%- doc.id %>/edit">
+				<%- doc.title %>
+			</a>
+		</li>
+	<% }); %>
+</ul>
