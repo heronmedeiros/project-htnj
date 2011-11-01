@@ -1,3 +1,9 @@
+# Dependências
+
+- MongoDB
+- Node.js
+- NPM
+
 # Modelo Attendee
 
 - email
