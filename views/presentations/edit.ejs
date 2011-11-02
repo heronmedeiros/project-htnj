@@ -2,3 +2,23 @@
 <p>
 	<a href="/presentations/<%- presentation.id %>/attendees/new">Add new attendee</a>
 </p>
+
+<ul id="attendees">
+  <% presentation.attendees.forEach(function(attendee){ %>
+    <li class="role <%- attendee.role %>">
+      <a href="/attend/<%- attendee.id %>">
+        <img src="<%- attendee.gravatarUrl %>" alt="" />
+      </a>
+    </li>
+  <% }); %>
+</ul>
+
+<h2>Slides</h2>
+
+<ul id="slides">
+  <% for (var i = 1; i <= presentation.slides; i++) { %>
+    <li>
+      <img src="/slides/<%- presentation.id %>/slides<%- i %>.png" alt="" />
+    </li>
+  <% } %>
+</ul>

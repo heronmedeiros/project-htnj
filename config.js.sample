@@ -1,9 +1,25 @@
 module.exports = {
     development: {
-      mongodb: "mongodb://localhost/howto_development"
+        mongodb: "mongodb://localhost/howto_development"
+      , from: "noreply@example.com"
+      , baseUrl: "http://localhost:2345/"
+      , smtp: {
+            host: "localhost"
+          , port: 1025
+        }
     }
 
   , production: {
-    mongodb: "mongodb://localhost/howto_production"
+        mongodb: "mongodb://localhost/howto_production"
+      , from: "noreply@example.com"
+      , baseUrl: "http://example.com/"
+      , smtp: {
+            host: "localhost"
+          , port: 1025
+      }
+    }
+
+  , init: function() {
+    return this[process.env.NODE_ENV || "development"]
   }
 }

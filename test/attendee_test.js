@@ -29,6 +29,20 @@ module.exports["gravatar url"] = testCase({
     }
 });
 
+module.exports["role"] = testCase({
+    "it returns speaker": function(test) {
+      attendee = new Attendee({speaker: true});
+      test.equal(attendee.role, "speaker");
+      test.done();
+    }
+
+  , "it returns attendee": function(test) {
+      attendee = new Attendee({speaker: false});
+      test.equal(attendee.role, "attendee");
+      test.done();
+    }
+});
+
 module.exports["authentication"] = testCase({
     setUp: function(callback) {
       mongoose.connect("mongodb://localhost/howto_test");

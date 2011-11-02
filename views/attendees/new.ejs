@@ -1,0 +1,17 @@
+<h1>New attendee</h1>
+
+<form action="/presentations/<%- presentation.id %>/attendees" method="post">
+	<p>
+		<label for="email">Attendee e-mail</label>
+		<input type="text" name="email" value="<%- doc.email %>" id="email">
+	</p>
+
+	<p class="inline">
+		<input type="checkbox" name="speaker" value="1" id="speaker">
+	  <label for="speaker">This attendee is the speaker</label>
+	</p>
+
+	<p>
+		<input type="submit" value="Add attendee">
+	</p>
+</form>
