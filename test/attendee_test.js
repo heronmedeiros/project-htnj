@@ -29,6 +29,14 @@ module.exports["gravatar url"] = testCase({
     }
 });
 
+module.exports["nick"] = testCase({
+    "it returns nick": function(test) {
+      attendee = new Attendee({email: "john@doe.com"});
+      test.equal(attendee.nick, "john")
+      test.done();
+    }
+});
+
 module.exports["role"] = testCase({
     "it returns speaker": function(test) {
       attendee = new Attendee({speaker: true});

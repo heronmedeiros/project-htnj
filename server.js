@@ -7,8 +7,11 @@ var express = require("express")
   , Presentation = require("./lib/models/presentation").model
   , Config = require("./config").init()
   , subscriptionMailer = require("./lib/mailers/subscription")
+  , io = require("socket.io").listen(app)
+  , listeners = require("./lib/listeners").init(io)
 ;
 
+console.log("=> connecting to mongodb: ", Config.mongodb);
 mongoose.connect(Config.mongodb);
 
 app.configure(function(){
@@ -17,7 +20,7 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.logger());
   app.use(express.static(__dirname + "/public"));
-  app.set("view options", {layout: "layout.ejs"});
+  app.set("view options", {layout: "layouts/admin.ejs"});
 });
 
 app.get("/", function(req, res){
@@ -89,7 +92,8 @@ app.get("/attend/:attendee_id", function(req, res, next){
 
     var attendee = doc.attendees.id(attendeeId);
     res.render("presentations/attend.ejs", {
-        attendee: attendee
+        layout: "layouts/presentation.ejs"
+      , attendee: attendee
       , presentation: doc
     });
   });

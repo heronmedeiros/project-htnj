@@ -1,4 +1,10 @@
 <img src="/awaiting.png" alt="" id="slide" />
+
+<div id="chat">
+  <div id="messages"></div>
+  <textarea id="message"></textarea>
+</div>
+
 <script type="text/javascript">
   var attendee = {
           id: "<%- attendee.id %>"
@@ -10,3 +16,19 @@
       }
   ;
 </script>
+
+<% if (attendee.speaker) { %>
+  <ul id="controls">
+    <li>
+      <a id="prev" href="#prev">Previous slide</a>
+    </li>
+
+    <li>
+      <strong id="current">0</strong>/<%- presentation.slides %>
+    </li>
+
+    <li>
+      <a id="next" href="#next">Next slide</a>
+    </li>
+  </ul>
+<% } %>
